@@ -135,6 +135,32 @@
 			<br /> <br />
 		</div>
 
+		<?php
+		if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+	
+			require_once 'controller/ProductController.php';
+
+			$product = new ProductController();
+			$insert = $product->insertProduct();
+			if ($insert)
+			{
+				echo '<div class="alert alert-success">';
+				echo '<strong>Mercadoria adicionada com sucesso!</strong> ';
+				echo '</div>';
+	
+			
+			}
+			else
+			{
+
+			
+ 				echo '<div class="alert alert-danger">';
+    				echo '<strong>Erro!</strong> O código que você utilizou já existe no BD';
+  				echo '</div>';
+			}
+		}
+		?>
+
 		<footer class="container-fluid text-center">
 			<p> Desenvolvido por: Gabriela Mattos</p>
 		</footer>
@@ -145,16 +171,3 @@
 	
 	</body>
 </html>
-
-<?php
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-	requice_onde controller/ProductController.php';
-
-	$product = new ProductController();
-	$product->insertProduct();
-	
-}
-?>
-
