@@ -42,7 +42,7 @@
 				height: 100px;
 				text-align: center;
 				margin: 0;
-				padding-top: 20px;	
+				padding-top: 10px;	
 			}
 
 			.msg-erro{ 
