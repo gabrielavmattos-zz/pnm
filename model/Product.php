@@ -8,9 +8,9 @@ class Product {
 	private $price;
 	private $typeBusiness;
 
-	public $host = 'localhost';
-	public $user = 'root';
-	public $pass = '';
+	public $host = '127.7.84.130';
+	public $user = 'adminQe7v3zB';
+	public $pass = 'YibSEj4WbkS1';
 	public $dbName = 'product';
 
 	public function setId($id) {
