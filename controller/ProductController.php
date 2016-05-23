@@ -30,9 +30,8 @@ class ProductController {
 		$product = new Product();
 		$products = $product->listAll();
 
-		$_REQUEST['products'] = $products;
-
-		require_once 'view/ProductView.php';
+		return $products;
+		
 	}
 }
 

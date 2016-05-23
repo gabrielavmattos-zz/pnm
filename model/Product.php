@@ -8,6 +8,11 @@ class Product {
 	private $price;
 	private $typeBusiness;
 
+	public $host = 'localhost';
+	public $user = 'root';
+	public $pass = '';
+	public $dbName = 'product';
+
 	public function setId($id) {
 		$this->id = $id;
 	}
@@ -57,27 +62,35 @@ class Product {
 	}
 	
 	public function save()	{
-		$host = 'localhost';
-		$user = 'root';
-		$pass = '';
-		$dbName = 'product';
+		
+	 	$link = mysqli_connect($this->host, $this->user, $this->pass) or die(mysql_error());
+		$db1 = mysqli_select_db($link, $this->dbName) or die(mysql_error());
 
-
-		$link = mysqli_connect($host, $user, $pass) or die(mysql_error());
-		$db1 = mysqli_select_db($link, $dbName) or die(mysql_error());
-
+		mysqli_close($link);
 		return mysqli_query($link, "INSERT INTO Product (id, typeP, nameP, quantity, price, typeBusiness) VALUES ('$this->id', '$this->type', '$this->name', '$this->quantity', '$this->price', '$this->typeBusiness')");
 		
 	}
 
 	public function listAll() {
 
-	
-		$consult = mysqli_query($link, "SELECT * FROM Product");
-		$numConsult = mysqli_num_fields($consult);
-		$valuesConsult = mysqli_fetch_array($consult);
+		$link = mysqli_connect($this->host, $this->user, $this->pass) or die(mysql_error());
+		$db1 = mysqli_select_db($link, $this->dbName) or die(mysql_error());
 
-		return $valuesConsult;	
+		$consult = mysqli_query($link, "SELECT id, typeP, nameP, quantity, price, typeBusiness FROM Product ORDER BY id") or die(mysql_error()); 
+		$num_fields = mysqli_num_fields($consult);
+		
+		$products = array();
+		$i = 0;
+
+		while($row = mysqli_fetch_assoc($consult)) {
+			$products[$i] = $row;
+			$i=$i + 1;
+		}
+
+
+		mysqli_free_result($consult);
+		mysqli_close($link);
+		return $products;	
 
 	}
 }
