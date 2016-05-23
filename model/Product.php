@@ -2,16 +2,17 @@
 class Product {
 
 	private $id;
-	private $type;
-	private $name;
+	private $typeP;
+	private $nameP;
 	private $quantity;
 	private $price;
 	private $typeBusiness;
+	
 
-	public $host = '127.7.84.130:3306';
-	public $user = 'adminQe7v3zB';
-	public $pass = 'YibSEj4WbkS1';
-	public $dbName = 'product';
+	public $host = "localhost";
+	public $userH = "root";
+	public $pass = "root";
+	public $dbName = "product";
 
 	public function setId($id) {
 		$this->id = $id;
@@ -22,19 +23,19 @@ class Product {
 	}
 
 	public function setType($Type) {
-		$this->type = $Type;
+		$this->typeP = $Type;
 	}
 
 	public function getType() {
- 		return $this->type;
+ 		return $this->typeP;
 	}
 
 	public function setName($Name) {
-		$this->name = $Name;
+		$this->nameP = $Name;
 	}
 	
 	public function getName() {
-		return $this->name;
+		return $this->nameP;
 	}
 
 	public function setQuantity($Quantity) {
@@ -54,7 +55,7 @@ class Product {
 	}
 	
 	public function setTypeBusiness($TypeBusiness) {
-		$this->TypeBusiness = $TypeBusiness;
+		$this->typeBusiness = $TypeBusiness;
 	}
 	
 	public function getTypeBusiness() {
@@ -62,36 +63,37 @@ class Product {
 	}
 	
 	public function save()	{
-		
-	 	$link = mysqli_connect($this->host, $this->user, $this->pass) or die(mysql_error());
-		$db1 = mysqli_select_db($link, $this->dbName) or die(mysql_error());
+		$mysqli = new mysqli($this->host, $this->userH, $this->pass, $this->dbName);
+	
+		if ($mysqli->connect_errno) {
+ 			echo "Failed to connect to MySQL: (" . $mysqli->connect_errno . ") " . $mysqli->connect_error;
+		}
 
-		mysqli_close($link);
-		return mysqli_query($link, "INSERT INTO Product (id, typeP, nameP, quantity, price, typeBusiness) VALUES ('$this->id', '$this->type', '$this->name', '$this->quantity', '$this->price', '$this->typeBusiness')");
+		return $mysqli->query("INSERT INTO Product (id, typeP, nameP, quantity, price, typeBusiness) VALUES ('$this->id', '$this->typeP', '$this->nameP', '$this->quantity', '$this->price', '$this->typeBusiness')");
 		
 	}
 
 	public function listAll() {
 
-		$link = mysqli_connect($this->host, $this->user, $this->pass) or die(mysql_error());
-		$db1 = mysqli_select_db($link, $this->dbName) or die(mysql_error());
+                $mysqli = new mysqli($this->host, $this->userH, $this->pass, $this->dbName);
+	
 
-		$consult = mysqli_query($link, "SELECT id, typeP, nameP, quantity, price, typeBusiness FROM Product ORDER BY id") or die(mysql_error()); 
-		$num_fields = mysqli_num_fields($consult);
+		$query = "SELECT id, typeP, nameP, quantity, price, typeBusiness FROM Product ORDER BY id"; 	
+		$consult = $mysqli->query($query);
+		
 		
 		$products = array();
 		$i = 0;
 
-		while($row = mysqli_fetch_assoc($consult)) {
-			$products[$i] = $row;
-			$i=$i + 1;
+		while($row = $consult->fetch_assoc()) {
+   			 $products[$i] = $row;
+			 $i = $i + 1;
 		}
 
 
-		mysqli_free_result($consult);
-		mysqli_close($link);
+		$mysqli->close();
 		return $products;	
 
 	}
 }
-?>
+

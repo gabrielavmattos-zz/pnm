@@ -122,8 +122,8 @@
 				</div>
 
 				<label class = "control-label col-sm-2" for="typeBusiness">  Tipo de negócio: </label>
-					<label class="radio-inline"> <input type = "radio" id = "typeBusiness" name = "typeBusiness" value = "buy" checked/> Compra </input> </label>
-					<label class="radio-inline"> <input type = "radio" id = "typeBusiness" name = "typeBusiness" value = "sell" /> Venda </input> </label>
+					<label class="radio-inline"> <input type = "radio" id = "typeBusiness" name = "typeBusiness" value = "Compra" checked/> Compra </input> </label>
+					<label class="radio-inline"> <input type = "radio" id = "typeBusiness" name = "typeBusiness" value = "Venda" /> Venda </input> </label>
 					
 				<br /> <br />
 
