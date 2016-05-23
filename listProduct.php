@@ -5,7 +5,7 @@
 	require_once 'controller/ProductController.php';
 	$product = new ProductController();
 	$products = $product->listProducts();
-?>;
+?>
 
 <html lang="pt">
 	<head>
@@ -75,7 +75,9 @@
 				<ul class="nav navbar-nav">
 					<li><a href="index.html">Home</a></li>
 					<li><a href="insertProduct.php">Inserir Mercadoria</a></li>
-					<li class="active"><a href="listProduct.html">Listar Mercadorias</a></li>
+					<li class="active"><a href="listProduct.php">Listar Mercadorias</a></li>
+
+
 				</ul>
 			</div>
 		</div>

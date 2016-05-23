@@ -9,6 +9,7 @@
 		<!-- bootstrap -->
 
 		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 		<script  src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
 
@@ -76,14 +77,12 @@
 				<div class="collapse navbar-collapse" id="myNavbar">
 					<ul class="nav navbar-nav">
 						<li><a href="index.html">Home</a></li>
-						<li class="active"><a href="">Inserir Mercadoria</a></li>
+						<li class="active"><a href="insertProduct.php">Inserir Mercadoria</a></li>
 						<li><a href="listProduct.php">Listar Mercadorias</a></li>
 					</ul>
 				</div>
 			</div>
 		
-			</div>
-
 		</nav>
 
 
