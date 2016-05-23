@@ -37,8 +37,12 @@
 				padding: 5px;
 			}
 
+
 			.jumbotron {
-				margin-bottom: 0;
+				height: 100px;
+				text-align: center;
+				margin: 0;
+				padding-top: 20px;	
 			}
 
 			.msg-erro{ 
