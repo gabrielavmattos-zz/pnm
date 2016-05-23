@@ -18,7 +18,7 @@ Foi utilizado o conceito de MVC (Model-View-Controller) para tentar deixar o có
 
 A classe Product está na pasta model e é responsável por toda a comunicação com o banco de dados. 
 
-As views estão na pasta raiz e fazem uso do framework Bootstrap para permitir a responsividade da aplicação. Como foi feito uso de um tema disponível na web foi linkado a um site do tema. 
+As views estão na pasta raiz e fazem uso do framework Bootstrap para permitir a responsividade da aplicação. Como foi feito uso de um tema disponível na web e tratar-se de uma aplicação simples foi linkado a um site do tema. 
 
 
 ### Referências utilizadas
@@ -30,3 +30,17 @@ Como não tinha feito projetos com PHP e Bootstrap fiz uso de bastante tutoriais
 * JavaScript Forms: <http://www.w3schools.com/js/js_validation.asp>
 * Entendendo o padrão MVC na prática: <http://tableless.com.br/entendendo-o-padrao-mvc-na-pratica/>
 * Bootstrap 3 Tutorial: <http://www.w3schools.com/bootstrap/default.asp>
+
+
+### To Do
+
+Algumas funcionalidades podem ser melhoradas para garantir uma aplicação web mais segura, rápida  e bonita para o usuário, são elas:
+
+* Bootstrap:
+	* Disponível  já no próprio servidor;
+	* Atualizar algumas partes do css do tema para torna-lo mais amigável aos diversos dispositivos;
+
+* Funcionalidades do site:
+	* Opção de alterar e remover mercadorias;
+	* Busca por filtros das mercadorias;
+	* Uma página inicial mais explicativa e amigável.
