@@ -8,7 +8,7 @@ class Product {
 	private $price;
 	private $typeBusiness;
 
-	public $host = '127.7.84.130';
+	public $host = '127.7.84.130:3306';
 	public $user = 'adminQe7v3zB';
 	public $pass = 'YibSEj4WbkS1';
 	public $dbName = 'product';
